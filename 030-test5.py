@@ -22,6 +22,24 @@ def berulang(kota, harga):
     for jumlah in range(1, 11):
         print(" %d	%d		 %d		    %d" %(jumlah, jumlah * harga, jumlah * harga - jumlah * harga * 0.1, jumlah * harga + jumlah * harga * 0.05))
 
+def proses_info(tujuan, tiket, bayar):
+    if tujuan == 1:
+        kota = 'JAKARTA'
+        harga = 1500
+
+    elif tujuan == 2:
+        kota = 'SURABAYA'
+        harga = 2000
+
+    elif tujuan == 3:
+        kota = 'BANDUNG'
+        harga = 2500
+
+    if pilihan == 2:
+        return kondisional_if(kota, harga, tiket, tujuan, bayar)
+    else:
+        return berulang(kota, harga)
+
 print("""Menu
 1. Input Output
 2. Kondisional IF
@@ -49,33 +67,18 @@ KODE BAYAR  -> 1. REGULER    -> Harga Normal
     tujuan = int(input("Masukan Kode Tujuan	: "))
     bayar = int(input("Masukan Kode Bayar	: "))
 
-    if tujuan == 1:
-        kota = 'JAKARTA'
-        harga = 1500
-    elif tujuan == 2:
-        kota = 'SURABAYA'
-        harga = 2000
-    elif tujuan == 3:
-        kota = 'BANDUNG'
-        harga = 2500
-
-    kondisional_if(kota, harga, tiket, tujuan, bayar)
+    proses_info(tujuan, tiket, bayar)
 
 elif pilihan == 3:
     tujuan = int(input("Masukan Kode Tujuan	: "))
 
-    if tujuan == 1:
-        kota = 'JAKARTA'
-        harga = 1500
-    elif tujuan == 2:
-        kota = 'SURABAYA'
-        harga = 2000
-    elif tujuan == 3:
-        kota = 'BANDUNG'
-        harga = 2500
+    proses_info(tujuan, 0, 0)
 
-    berulang(kota, harga)
+elif pilihan == 4:
+    raise Exception("Opsi %d belum diimplementasikan" %(pilihan))
 
-#elif pilihan == 4:
+elif pilihan == 5:
+    quit()
 
-#elif pilihan == 5:
+else:
+    raise ValueError("Opsi %d adalah tidak valid" %(pilihan))
