@@ -20,23 +20,19 @@ def bayar_tujuan(kota, harga, tiket, tujuan, bayar):
         print("Tiket Reguler ->", "%d x %d = %d" %(tiket, harga, jumlah))
 
     elif bayar == 2: # Diskon 10%
-        diskon = 0.1 # 10%
-        jumlah = jumlah - jumlah * diskon # harga setelah diskon
-
-        print("Tiket Promo ->", "(%d x %d)-(%d x %d x %1.1f) = %d" %(tiket, harga, tiket, harga, diskon, jumlah))
+        print("Tiket Promo ->", "(%d x %d)-(%d x %d x 0.1) = %d" %(tiket, harga, tiket, harga, proses_diskon(jumlah)))
 
     elif bayar == 3: # Tuslah 5%
-        tuslah = 0.05 # 5%
-        jumlah = jumlah + jumlah * tuslah # harga setelah tuslah
-
-        print("Tiket Hari Besar ->", "(%d x %d)+(%d x %d x %1.2f) = %d" %(tiket, harga, tiket, harga, tuslah, jumlah))
+        print("Tiket Hari Besar ->", "(%d x %d)+(%d x %d x 0.05) = %d" %(tiket, harga, tiket, harga, proses_tuslah(jumlah)))
 
 # bilangan berulang
 def harga_tiket(kota, harga):
     print("TIKET TUJUAN %s" %(kota))
     print("Jumlah	  Reguler	Promo		Hari Besar")
-    for jumlah in range(1, 11): # 1 - 10
-        print(" %d	%d		 %d		    %d" %(jumlah, jumlah * harga, jumlah * harga - jumlah * harga * 0.1, jumlah * harga + jumlah * harga * 0.05))
+    for tiket in range(1, 11): # 1 - 10
+        jumlah = tiket * harga
+
+        print(" %d	%d		 %d		    %d" %(tiket, jumlah, proses_diskon(jumlah), proses_tuslah(jumlah)))
 
 # fungsi unified
 def proses_info(tujuan, tiket, bayar):
@@ -56,6 +52,14 @@ def proses_info(tujuan, tiket, bayar):
         return bayar_tujuan(kota, harga, tiket, tujuan, bayar)
     else: # daftar harga tiket
         return harga_tiket(kota, harga)
+
+# operasi dengan diskon
+def proses_diskon(jumlah):
+    return jumlah - jumlah * 0.1 # 10%
+
+# operasi dengan tuslah
+def proses_tuslah(jumlah):
+    return jumlah + jumlah * 0.05 # 5%
 
 print("""Menu
 1. Input Output
