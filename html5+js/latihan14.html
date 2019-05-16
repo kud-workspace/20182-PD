@@ -5,17 +5,17 @@
 		<script type="text/javascript">
 		    function hasil() {
 				var buah, jumlah, hasil, diskon;
-			
+
 				buah = parseInt(document.getElementById('buah').value);
 				jumlah = parseInt(document.getElementById('jumlah').value);
-				
+
 				if (jumlah >= 5)
 				    diskon = 0.05 * buah;
 				else
 					diskon = 0;
-				
+
 				hasil = (buah - diskon) * jumlah;
-				
+
 				alert("Total yang harus dibayar " + hasil);
 			}
 		</script>
