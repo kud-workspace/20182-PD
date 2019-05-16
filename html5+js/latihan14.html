@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pemrograman Dasar</title>
+		<script type="text/javascript">
+		    function hasil() {
+				var buah, jumlah, hasil, diskon;
+			
+				buah = parseInt(document.getElementById('buah').value);
+				jumlah = parseInt(document.getElementById('jumlah').value);
+				
+				if (jumlah >= 5)
+				    diskon = 0.05 * buah;
+				else
+					diskon = 0;
+				
+				hasil = (buah - diskon) * jumlah;
+				
+				alert("Total yang harus dibayar " + hasil);
+			}
+		</script>
+	</head>
+	<body>
+	    <table>
+			<tr>
+				<td>Barang</td>
+				<td>
+					<select id="buah">
+						<option value="15000">Apel</option>
+						<option value="25000">Anggur</option>
+						<option value="10000">Jeruk</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Jumlah</td>
+				<td><input type="number" id="jumlah" min="0" required></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center">
+					<input type="submit" value="Hitung" onclick="hasil()">
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

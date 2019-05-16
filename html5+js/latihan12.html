@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pemrograman Dasar</title>
+		<script type="text/javascript">
+			function jumlah() {
+				var nilai1, nilai2, hasil;
+				
+				nilai1 = document.getElementById('nilai1').value;
+				nilai2 = document.getElementById('nilai2').value;
+				hasil = parseInt(nilai1) + parseInt(nilai2);
+				
+				alert("Hasil: " + hasil)
+			}
+		</script>
+	</head>
+	<body>
+		<table border="0">
+			<tr>
+				<td width="150px">Nilai 1</td>
+				<td>:</td>
+				<td><input type="text" name="nilai1" id="nilai1" required></td>
+			</tr>
+			<tr>
+				<td>Nilai 2</td>
+				<td>:</td>
+				<td><input type="text" name="nilai2" id="nilai2" required></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="submit" name="submit" value="Jumlahkan" onclick="jumlah()"></td>
+			</tr>
+		</table>
+	</body>
+</html>
